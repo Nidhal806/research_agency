@@ -1,0 +1,87 @@
+{
+ "doctype": "DocType",
+ "name": "Journal Application",
+ "module": "IraqIndex Management",
+ "custom": 1,
+ "fields": [
+  {
+   "fieldname": "journal_name",
+   "label": "اسم المجلة",
+   "fieldtype": "Data",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "publisher",
+   "label": "جهة الإصدار",
+   "fieldtype": "Data",
+   "reqd": 1
+  },
+  {
+   "fieldname": "foundation_year",
+   "label": "سنة التأسيس",
+   "fieldtype": "Int"
+  },
+  {
+   "fieldname": "publish_type",
+   "label": "نوع النشر",
+   "fieldtype": "Select",
+   "options": "ورقي\nإلكتروني\nكلاهما"
+  },
+  {
+   "fieldname": "specialization",
+   "label": "التخصص",
+   "fieldtype": "Select",
+   "options": "علمي\nهندسي\nطبي\nإنسانيات",
+   "reqd": 1
+  },
+  {
+   "fieldname": "language",
+   "label": "لغة النشر",
+   "fieldtype": "Select",
+   "options": "عربي\nإنجليزي"
+  },
+  {
+   "fieldname": "website",
+   "label": "رابط الموقع",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "official_email",
+   "label": "البريد الرسمي",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "editor_in_chief",
+   "label": "رئيس التحرير",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "issues_count",
+   "label": "عدد الأعداد المنشورة",
+   "fieldtype": "Int"
+  },
+  {
+   "fieldname": "attachments",
+   "label": "مرفقات",
+   "fieldtype": "Attach"
+  },
+  {
+   "fieldname": "status",
+   "label": "حالة الطلب",
+   "fieldtype": "Select",
+   "options": "جديد\nقيد المراجعة\nمقبول\nمرفوض",
+   "default": "جديد"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ]
+}
+
