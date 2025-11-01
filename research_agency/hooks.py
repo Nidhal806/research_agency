@@ -25,12 +25,12 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/research_agency/css/research_agency.css"
-# app_include_js = "/assets/research_agency/js/research_agency.js"
+app_include_css = "/assets/research_agency/css/site.css"
+app_include_js = "/assets/research_agency/js/site.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/research_agency/css/research_agency.css"
-# web_include_js = "/assets/research_agency/js/research_agency.js"
+web_include_css = "/assets/research_agency/css/site.css"
+web_include_js = "/assets/research_agency/js/site.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "research_agency/public/scss/website"

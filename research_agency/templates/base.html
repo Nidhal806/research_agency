@@ -1,0 +1,22 @@
+{# research_agency/templates/base.html #}
+{% extends "templates/web.html" %}
+
+{# مساحة لأي إضافات رأسية مستقبلية (ميتا، سكريبتات خاصة بالصفحة). حالياً نتركها فارغة #}
+{% block head_include %}
+  {{ super() }}
+{% endblock %}
+
+{# الهيدر العام (يحتوي على شريط التنقل) #}
+{% block navbar %}
+  {% include "templates/includes/iraqindex_header.html" %}
+{% endblock %}
+
+{# محتوى الصفحة: اتركي الصفحات الأخرى تمتد من هذا القالب وتملأ هذا البلوك #}
+{% block content %}
+  {{ super() }}
+{% endblock %}
+
+{# الفوتر العام #}
+{% block footer %}
+  {% include "templates/includes/iraqindex_footer.html" %}
+{% endblock %}

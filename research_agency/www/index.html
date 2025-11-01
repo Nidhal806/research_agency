@@ -1,0 +1,46 @@
+{% extends "research_agency/templates/base.html" %}
+
+{% block content %}
+
+  <!-- Hero -->
+  <section class="hero" style="padding:64px 0;text-align:center">
+    <div class="container">
+      <h1 style="margin:0 0 12px">الفهرس العراقي العلمي</h1>
+      <p style="margin:0 0 24px;opacity:.95">
+        بوابة وطنية لفهرسة المجلات والنتاج العلمي في العراق — بحث موحد، مؤشرات، وإدارة طلبات الفهرسة.
+      </p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a class="btn-primary" href="/journal-application">قدّم طلب فهرسة</a>
+        <a class="btn-primary" href="/journals" style="background:#83d4ff;color:#0a324c">ابحث عن مجلة</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم مختصر تعريفي (خفيف) -->
+  <section class="container" style="padding:32px 0 8px;text-align:center">
+    <h2 style="color:#0a324c;margin:0 0 8px;font-size:1.4rem">لماذا هذه المنصة؟</h2>
+    <p style="color:#345;max-width:760px;margin:0 auto">
+      توحيد بيانات المجلات العراقية المعتمدة، ودعم الباحثين ببحث سريع ومؤشرات واضحة، مع مسار فهرسة بسيط للمجلات.
+    </p>
+  </section>
+
+  <!-- الإحصاءات -->
+  <section class="container stats" style="margin:24px auto 40px">
+    <div class="stat-card">
+      <div class="stat-title">المجلّات</div>
+      <div class="stat-num" data-target="42">0</div>
+      <div class="stat-sub">إجمالي</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-title">الأبحاث</div>
+      <div class="stat-num" data-target="860">0</div>
+      <div class="stat-sub">إجمالي</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-title">الباحثون</div>
+      <div class="stat-num" data-target="310">0</div>
+      <div class="stat-sub">إجمالي</div>
+    </div>
+  </section>
+
+{% endblock %}
