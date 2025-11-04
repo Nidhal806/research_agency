@@ -95,3 +95,115 @@ footer {
   color: #678;
   font-size: .9rem;
 }
+
+/* ===== تحسينات الهيدر والفوتر ===== */
+
+/* الهيدر المحسن */
+.iraqindex-header {
+  @extend header.sticky; // نستخدم التصميم الموجود
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    padding: 0 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      height: auto;
+      padding: 10px;
+    }
+  }
+  
+  .logo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: var(--navy);
+    text-decoration: none;
+    
+    .logo-img {
+      width: 160px;
+      height: 40px;
+      display: block;
+    }
+    
+    .logo-text {
+      font-weight: bold;
+      font-size: 1.2rem;
+      
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+  
+  .header-nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    
+    @media (max-width: 768px) {
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    a {
+      color: var(--navy);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 10px;
+      transition: all 0.3s;
+      
+      &:hover {
+        background: rgba(131,212,255,.18);
+      }
+      
+      &.btn-primary {
+        background: var(--navy);
+        color: white !important;
+      }
+    }
+  }
+}
+
+/* الفوتر المحسن */
+.iraqindex-footer {
+  background: var(--card);
+  border-top: 1px solid #e3f3ff;
+  margin-top: 40px;
+  
+  .footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    padding: 20px 0;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid #e3f3ff;
+    padding: 10px 0;
+    text-align: center;
+    color: #567;
+    font-size: .9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}

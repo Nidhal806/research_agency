@@ -1,22 +1,28 @@
-{# research_agency/templates/base.html #}
 {% extends "templates/web.html" %}
 
-{# مساحة لأي إضافات رأسية مستقبلية (ميتا، سكريبتات خاصة بالصفحة). حالياً نتركها فارغة #}
-{% block head_include %}
-  {{ super() }}
-{% endblock %}
+{# إزالة هيدر فرابي الافتراضي #}
+{% block navbar %}{% endblock %}
 
-{# الهيدر العام (يحتوي على شريط التنقل) #}
-{% block navbar %}
-  {% include "templates/includes/iraqindex_header.html" %}
-{% endblock %}
+{# إزالة فوتر فرابي الافتراضي #}
+{% block footer %}{% endblock %}
 
-{# محتوى الصفحة: اتركي الصفحات الأخرى تمتد من هذا القالب وتملأ هذا البلوك #}
 {% block content %}
-  {{ super() }}
+{# الهيدر المخصص #}
+{% include "templates/includes/iraqindex_header.html" %}
+
+{# محتوى الصفحة الرئيسي #}
+{% block page_content %}{% endblock %}
+
+{# الفوتر المخصص #}
+{% include "templates/includes/iraqindex_footer.html" %}
 {% endblock %}
 
-{# الفوتر العام #}
-{% block footer %}
-  {% include "templates/includes/iraqindex_footer.html" %}
+{% block head_include %}
+{# إضافة ملفات التصميم #}
+<link rel="stylesheet" href="/assets/research_agency/public/scss/site.css">
+{% endblock %}
+
+{% block script %}
+{# إضافة الجافاسكريبت #}
+<script src="/assets/research_agency/public/js/site.js"></script>
 {% endblock %}
