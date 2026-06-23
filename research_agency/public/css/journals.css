@@ -1,0 +1,88 @@
+
+/* شريط البحث */
+.iqx-searchbar{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin:12px 0; font-size: 1;}
+.iqx-searchbar input,.iqx-searchbar select{padding:10px 12px;border:1px solid #d5e6ef;border-radius:12px;min-width:260px;outline:none}
+.iqx-searchbar button{padding:10px 16px;border:0;border-radius:12px;background:#0a324c;color:#fff;cursor:pointer}
+.iqx-searchbar button:hover{opacity:.6}
+
+/* أزرار الترقيم */
+.iqx-pager{display:flex;gap:10px;justify-content:center;align-items:center;margin:16px 0 40px}
+.iqx-pager button{padding:8px 14px;border:0;border-radius:10px;background:#83d4ff;color:#0a324c;cursor:pointer}
+.iqx-pager button:disabled{opacity:.45;cursor:not-allowed}
+
+/* غلاف النتائج كجدول */
+.iqx-table-wrap{background:#fff;border:1px solid #e7f1f7;border-radius:18px;box-shadow:0 2px 10px rgba(10,50,76,.06);margin:18px 0;overflow-x:auto}
+.iqx-table{width:100%;border-collapse:collapse;min-width:760px;font-size:14px}
+.iqx-table thead th{
+  background:linear-gradient(90deg,#0a324c,#0a324c);
+  color:#fff;text-align:right;padding:12px 14px;position:sticky;top:0
+}
+.iqx-table tbody td{padding:12px 14px;border-top:1px solid #eef3f7;color:#223}
+.iqx-table tbody tr:hover{background:#f7fbff}
+.iqx-table .c-title{font-weight:800;color:#0a324c}
+.iqx-table .c-if{
+  background:#fff6e5;border:1px solid #ffe0a6;border-radius:999px;padding:6px 10px;display:inline-block;min-width:60px;text-align:center
+}
+.iqx-table .c-link a{color:#0a324c;text-decoration:underline}
+
+/* ريسبونسف للموبايل */
+@media (max-width: 768px){
+  .iqx-table{font-size:13px}
+  .iqx-table thead{display:none}
+  .iqx-table tbody tr{
+    display:block;border-bottom:8px solid #f3f6fa;padding:10px 12px
+  }
+  .iqx-table tbody td{
+    display:grid;grid-template-columns:120px 1fr;gap:8px;padding:8px 0;border:none
+  }
+  .iqx-table tbody td::before{
+    content:attr(data-label);color:#5b6b7c;font-weight:600
+  }
+  .iqx-table .c-title{font-size:15px;font-weight:800}
+}
+@media (max-width:420px){
+  .iqx-table{font-size:12px}
+  .iqx-table tbody tr{padding:8px 10px}
+}
+
+/* شريط البحث (أصغر قليلاً) */
+.iqx-searchbar {
+  display:flex; gap:8px; align-items:center; justify-content:center; flex-wrap:wrap; margin:12px 0;
+}
+.iqx-searchbar input,
+.iqx-searchbar select {
+  font-family:"Almarai",system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Arabic",sans-serif;
+  font-size:0.95rem;         /* كان كبير؛ الآن أدق */
+  line-height:1.2;
+  padding:9px 12px;           /* قلّلنا 1px */
+  border:1px solid #d5e6ef;
+  border-radius:12px; min-width:260px; outline:none;
+}
+.iqx-searchbar option {
+  font-size:0.95rem;          /* بعض المتصفحات تتجاهله، لكن نحطه للاحتياط */
+}
+.iqx-searchbar button {
+  font-family:"Almarai",system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Arabic",sans-serif;
+  font-size:0.95rem;
+  padding:9px 16px;           /* متناسق مع الحقول */
+  border:0; border-radius:12px; background:#0a324c; color:#fff; cursor:pointer;
+}
+.iqx-searchbar button:hover { opacity:.9; }
+
+/* موبايل: خفّضي أكثر بشعره تحت 420px */
+@media (max-width:420px) {
+  .iqx-searchbar input,
+  .iqx-searchbar select,
+  .iqx-searchbar button,
+  .iqx-searchbar option { font-size:0.9rem; }
+  .iqx-searchbar input, .iqx-searchbar select { min-width:210px; }
+}
+
+.journal-link {
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+
+

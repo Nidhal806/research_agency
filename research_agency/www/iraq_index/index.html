@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>الفهرس العراقي العلمي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/research_agency/css/site.css" />
+  <link rel="icon" href="/assets/research_agency/images/iraqindex-logo.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- ▼▼ الهيدر (يُحقن من partial) ▼▼ -->
+  <div id="site-header"></div>
+
+  <!-- Hero -->
+  <section class="hero" style="padding:64px 0;text-align:center">
+    <div class="container">
+      <h1 style="margin:0 0 12px">الفهرس العراقي العلمي</h1>
+      <p style="margin:0 0 6px;opacity:.9;font-size:14px;line-height:1.7;color:#fff">
+  منصة وطنية تابعة لهيئة البحث العلمي – وزارة التعليم العالي والبحث العلمي (العراق)
+      </p>
+      <p style="margin:0 0 24px;opacity:.95">
+        بوابة وطنية لفهرسة المجلات والنتاج العلمي في العراق — بحث موحد، مؤشرات، وإدارة طلبات الفهرسة.
+      </p>
+      <p style="margin:0 0 24px;opacity:.95">
+       تفهرس المنصة بيانات المجلات والمقالات العلمية وتربطها بمصادرها الأصلية، دون استضافة النصوص الكاملة.
+      </p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a class="btn-primary" href="/journal-application/new">قدم طلب فهرسة</a>
+        <a id="search-journal-btn" class="btn-primary" href="/iraq_index/journals-v2" style="background:#83d4ff;color:#0a324c">
+          ابحث عن مجلة
+        </a>
+      </div>
+  </section>
+
+  <!-- لماذا -->
+  <section class="container" style="padding:32px 0 8px;text-align:center">
+    <h2 style="color:#0a324c;margin:0 0 8px;font-size:1.4rem">لماذا هذه المنصة؟</h2>
+    <p style="color:#345;max-width:760px;margin:0 auto">
+      توحيد بيانات المجلات العراقية المعتمدة، ودعم الباحثين ببحث سريع ومؤشرات واضحة، مع مسار فهرسة بسيط للمجلات.
+    </p>
+  </section>
+
+  
+
+  <!-- الإحصاءات -->
+  <section class="container stats" style="margin:24px auto 40px">
+    <div class="stat-card"><div class="stat-title">المجلات</div><div class="stat-num" data-target="42">0</div><div class="stat-sub">إجمالي</div></div>
+    <div class="stat-card"><div class="stat-title">الأبحاث</div><div class="stat-num" data-target="860">0</div><div class="stat-sub">إجمالي</div></div>
+    <div class="stat-card"><div class="stat-title">الباحثون</div><div class="stat-num" data-target="310">0</div><div class="stat-sub">إجمالي</div></div>
+  </section>
+
+    <!-- ▲▲ نهاية المحتوى ▲▲ -->
+
+  <!-- ▼▼ الفوتر (يُحقن من partial) ▼▼ -->
+  <div id="site-footer"></div>
+
+  <!-- جلب الجزئيات من نفس المجلد (مسارات مطلقة لتعمل من أي صفحة داخل iraq_index) -->
+  <script>
+    fetch('/iraq_index/partials/iraqindex_header.html?v=1')
+      .then(r => r.text()).then(t => { document.getElementById('site-header').innerHTML = t; });
+
+    fetch('/iraq_index/partials/iraqindex_footer.html?v=1')
+      .then(r => r.text()).then(t => { document.getElementById('site-footer').innerHTML = t; });
+  </script>
+<script src="/assets/research_agency/js/site.js?v=5"></script>
+</body>
+</html>

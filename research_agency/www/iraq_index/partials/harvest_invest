@@ -1,0 +1,152 @@
+@frappe.whitelist()
+def run_harvest_and_ingest_batch(file_path, batch_size=3):
+
+    import pandas as pd
+    import frappe
+    import html
+    import re
+    from frappe.utils import nowdate
+    from research_agency.api import harvest_oai_to_single_excel
+
+    # --------------------------------------------------
+    # 🔹 تنظيف القيم
+    # --------------------------------------------------
+    def clean(val):
+        if val is None:
+            return None
+
+        if pd.isna(val):
+            return None
+
+        val = html.unescape(str(val))
+        val = val.replace('\xa0', ' ')
+        val = re.sub(r'\s+', ' ', val).strip()
+
+        return val if val else None
+
+    # --------------------------------------------------
+    # 🔹 قراءة ملف التحكم
+    # --------------------------------------------------
+    df = pd.read_excel(file_path)
+
+    batch = df[df['is_harvested'] == 0].head(batch_size)
+
+    for idx, row in batch.iterrows():
+
+        journal_name = row.get("Journal")
+        oai_url = row.get("oai_base_url")
+
+        print(f"\n🚀 Processing: {journal_name}")
+
+        try:
+            # ---------------- HARVEST ----------------
+            result = harvest_oai_to_single_excel(oai_url, journal_name)
+            harvested_count = result.get("records", 0)
+            file_url = result.get("file")
+
+            print(f"📁 File: {file_url}")
+
+            # ---------------- INGEST ----------------
+            file_path_excel = frappe.get_site_path(file_url.strip("/"))
+            df_articles = pd.read_excel(file_path_excel)
+
+            journal_id = frappe.db.get_value("Journal_Dtp", {"journal_name": journal_name})
+
+            batch_doc = frappe.new_doc("Journal_Intake_Batch_Dtp")
+            batch_doc.journal = journal_id
+            batch_doc.intake_date = nowdate()
+            batch_doc.batch_status = "معتمدة"
+            batch_doc.intake_file = file_url
+            batch_doc.batch_articles_count = 0
+            batch_doc.insert(ignore_permissions=True)
+
+            inserted = 0
+
+            for _, a in df_articles.iterrows():
+
+                doi = clean(a.get("doi"))
+
+                if doi and frappe.db.exists("Article_Metadata_Dtp", {"doi": doi}):
+                    continue
+
+                doc = frappe.new_doc("Article_Metadata_Dtp")
+
+                doc.journal = journal_id
+                doc.intake_batch = batch_doc.name
+
+                doc.article_title = clean(a.get("article_title"))
+                doc.authors_text = clean(a.get("authors_text"))
+                doc.abstract = clean(a.get("abstract"))
+                doc.publication_date = clean(a.get("publication_date"))
+                doc.doi = doi
+                
+                article_url = (
+                clean(a.get("article_url")) 
+                or clean(a.get("pdf_url")) 
+                or clean(a.get("doi"))
+            )
+
+                # إذا ماكو أي رابط → تجاهل المقال
+                if not article_url:
+                    print(f"⚠️ Skipped (no URL): {clean(a.get('article_title'))}")
+                    continue
+
+                doc.article_url = article_url
+
+                doc.volume = clean(a.get("volume"))
+                doc.issue = clean(a.get("issue"))
+                doc.pages = clean(a.get("pages"))
+                doc.article_language = clean(a.get("language"))
+
+                doc.article_specialization = clean(a.get("article_specialization"))
+                doc.oai_set_name = clean(a.get("oai_set_name"))
+
+                doc.keywords = clean(a.get("keywords"))
+                doc.subject_raw = clean(a.get("subject_raw"))
+                doc.pdf_url = clean(a.get("pdf_url"))
+                doc.source_text = clean(a.get("source"))
+
+                doc.insert(ignore_permissions=True)
+                inserted += 1
+
+            # تحديث عدد المقالات
+            frappe.db.set_value(
+                "Journal_Intake_Batch_Dtp",
+                batch_doc.name,
+                "batch_articles_count",
+                inserted
+            )
+
+            # تحديث حالة المجلة
+            journal_doc = frappe.get_doc("Journal_Dtp", journal_id)
+            journal_doc.index_status = "تم الفهرسة"
+            journal_doc.save()
+
+            # تحديث Excel
+            df.at[idx, 'is_harvested'] = 1
+
+            print(f"📊 Inserted: {inserted}")
+
+            df.at[idx, 'harvested_count'] = harvested_count
+            df.at[idx, 'ingested_count'] = inserted
+
+        except Exception as e:
+            print(f"❌ Error: {e}")
+
+    # حفظ ملف التحكم
+    df.to_excel(file_path, index=False)
+
+    frappe.db.commit()
+
+    return {
+        "status": "done",
+        "processed": len(batch)
+    }
+
+    // 
+    run_harvest_and_ingest_batch(
+    "/home/frappe/frappe-bench/sites/iraq-research-agency.com/private/files/oai_journals_master_harvest_readybfb97c_with_ids.xlsx",
+    3
+)
+
+

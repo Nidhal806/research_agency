@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>متابعة طلب الفهرسة – الفهرس العراقي العلمي</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/research_agency/css/site.css" />
+  <link rel="stylesheet" href="/assets/research_agency/css/track.css" />
+  <link rel="icon" href="/assets/research_agency/images/iraqindex-logo.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- الهيدر -->
+  <div id="site-header"></div>
+
+  <!-- Hero -->
+  <section class="hero iqx-track-hero">
+    <div class="container">
+      <h1>متابعة طلب الفهرسة</h1>
+      <p>أدخل رقم الطلب للاطلاع على حالته الحالية بشكل مباشر</p>
+
+      <div class="iqx-track-search">
+        <input id="appId" type="text" placeholder="مثال: IIX-2601-0000" />
+        <button id="btnTrack">تتبع الطلب</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- المحتوى -->
+  <section class="container iqx-track-container">
+    <div id="alert" class="iqx-alert" hidden></div>
+
+    <div id="card" class="iqx-track-card" hidden>
+
+      <div class="iqx-track-head">
+        <div>
+          <span class="label">رقم الطلب</span>
+          <div class="value" id="outId">—</div>
+        </div>
+        <div class="badges">
+          <span class="badge" id="badgeApp">—</span>
+          <span class="badge light" id="badgePay">—</span>
+        </div>
+      </div>
+
+      <div class="iqx-track-grid">
+        <div>
+          <span class="label">تاريخ التقديم</span>
+          <span class="value" id="outCreated">—</span>
+        </div>
+        <div>
+          <span class="label">آخر تحديث</span>
+          <span class="value" id="outModified">—</span>
+        </div>
+        <div>
+          <span class="label">طريقة الدفع</span>
+          <span class="value" id="outMethod">—</span>
+        </div>
+      </div>
+
+      <div class="iqx-divider"></div>
+
+      <!-- Timeline -->
+      <div id="timeline" class="iqx-timeline"></div>
+
+      <!-- صندوق الفهرسة (يظهر فقط إذا تم الفهرسة) -->
+    <div id="indexedBox" class="iqx-indexed-box" hidden>
+    <div class="iqx-indexed-head">
+        <span class="badge indexed">✔ تمت الفهرسة</span>
+        <span class="date" id="indexedDate">—</span>
+    </div>
+    <p>
+        تم إدراج المجلة رسميا ضمن قاعدة بيانات
+        <strong>الفهرس العراقي العلمي</strong>.
+    </p>
+    </div>
+
+    <div class="iqx-track-actions">
+      <button id="btnCopy">نسخ رابط المتابعة</button>
+
+      <!-- زر الدفع (يظهر/يختفي حسب حالة الدفع من JS) -->
+      <a id="btnPay" class="btn-primary" href="#" hidden>ادفع الآن</a>
+
+      <a href="/journal-application/new">تقديم طلب جديد</a>
+    </div>
+
+
+    </div>
+  </section>
+
+  <!-- الفوتر -->
+  <div id="site-footer"></div>
+
+  <!-- حقن الهيدر/الفوتر -->
+  <script>
+    fetch('/iraq_index/partials/iraqindex_header.html?v=1')
+      .then(r => r.text()).then(t => { document.getElementById('site-header').innerHTML = t; });
+
+    fetch('/iraq_index/partials/iraqindex_footer.html?v=1')
+      .then(r => r.text()).then(t => { document.getElementById('site-footer').innerHTML = t; });
+  </script>
+
+  <!-- JS -->
+  <script src="/assets/research_agency/js/track.js"></script>
+
+</body>
+</html>

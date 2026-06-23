@@ -1,0 +1,97 @@
+/* research_agency/public/css/success.css */
+
+.iqx-succ-hero{
+  padding: 48px 0;
+  text-align: center;
+}
+
+.iqx-succ-container{
+  padding: 24px 0 48px;
+}
+
+.iqx-succ-card{
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.08);
+}
+
+.iqx-succ-head{
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.label{
+  font-size: 13px;
+  color: #777;
+}
+
+.value{
+  font-size: 26px;
+  font-weight: 800;
+  color: #0a324c;
+  letter-spacing: .5px;
+}
+
+.badge{
+  background: #0a324c;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.badge.light{
+  background: #eef6ff;
+  color: #0a324c;
+}
+
+.iqx-divider{
+  margin: 18px 0;
+  height: 1px;
+  background: #e6e6e6;
+}
+
+.iqx-succ-actions{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.iqx-succ-actions button,
+.iqx-succ-actions a{
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.btn-primary{
+  background: #0a324c !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.btn-secondary{
+  background: #fff !important;
+  color: #0a324c !important;
+  border: 1px solid #ddd !important;
+}
+
+.iqx-succ-foot{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.iqx-succ-actions {
+  margin-top: 22px;
+}
+

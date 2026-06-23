@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>تفاصيل المجلة – الفهرس العراقي العلمي</title>
+
+  <!-- الخط -->
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- ستايل عام -->
+  <link rel="stylesheet" href="/assets/research_agency/css/site.css" />
+  <link rel="stylesheet" href="/assets/research_agency/css/journal-details.css" />
+  <link rel="icon" href="/assets/research_agency/images/iraqindex-logo.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- الهيدر -->
+  <div id="site-header"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1 id="journal-title">…</h1>
+      <p style="margin:0;opacity:.9">
+        صفحة تفاصيل المجلة المفهرسة في الفهرس العراقي العلمي
+      </p>
+    </div>
+  </section>
+
+  <!-- محتوى الصفحة -->
+  <main class="container" style="padding:32px 0">
+
+    <!-- معلومات المجلة -->
+    <section class="stat-card" style="margin-bottom:24px">
+      <div id="journal-meta" class="stats"></div>
+      <div id="journal-link" style="margin-top:12px"></div>
+    </section>
+
+    <!-- الإحصاءات -->
+    <section class="stats" style="margin-bottom:32px">
+      <div class="stat-card">
+        <div class="stat-title">عدد المقالات</div>
+        <div class="stat-num" id="stat-articles">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">دفعات الإدخال</div>
+        <div class="stat-num" id="stat-batches">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">آخر إدخال</div>
+        <div class="stat-num" id="stat-last-intake">—</div>
+      </div>
+    </section>
+
+    <!-- المؤلفون -->
+    <section style="margin-bottom:32px">
+      <h3 style="margin-bottom:12px;color:var(--navy)">المؤلفون</h3>
+      <div id="authors-box" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+    </section>
+
+    <!-- البحث -->
+    <section style="margin-bottom:16px">
+      <input
+        id="article-search"
+        type="text"
+        placeholder="ابحث بعنوان المقال أو اسم المؤلف…"
+        style="
+          width:100%;
+          padding:12px 14px;
+          border-radius:12px;
+          border:1px solid #d5e6ef;
+          font-family:inherit"
+        onkeydown="if(event.key==='Enter') searchArticles()"
+      />
+    </section>
+
+    <!-- جدول المقالات -->
+    <section class="iqx-table-wrap">
+      <table class="iqx-table">
+        <thead>
+          <tr>
+            <th>عنوان المقال</th>
+            <th>المؤلفون</th>
+            <th>تاريخ النشر</th>
+            <th>المجلد</th>
+            <th>العدد</th>
+            <th>DOI</th>
+          </tr>
+        </thead>
+        <tbody id="articles-body">
+          <!-- تعبئة ديناميكية -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- التصفح -->
+    <div id="pager" class="iqx-pager"></div>
+
+  </main>
+
+  <!-- الفوتر -->
+  <div id="site-footer"></div>
+
+  <!-- تحميل الهيدر والفوتر -->
+  <script>
+    fetch('/iraq_index/partials/iraqindex_header.html?v=1')
+      .then(r => r.text())
+      .then(t => document.getElementById('site-header').innerHTML = t);
+
+    fetch('/iraq_index/partials/iraqindex_footer.html?v=1')
+      .then(r => r.text())
+      .then(t => document.getElementById('site-footer').innerHTML = t);
+  </script>
+
+  <!-- السكربتات -->
+  <script src="/assets/research_agency/js/journal-details.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>المقالات العلمية – الفهرس العراقي العلمي</title>
+
+  <!-- الخط -->
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- ستايل عام -->
+  <link rel="stylesheet" href="/assets/research_agency/css/site.css" />
+  <link rel="stylesheet" href="/assets/research_agency/css/articles.css" />
+
+  <link rel="icon" href="/assets/research_agency/images/iraqindex-logo.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- الهيدر -->
+  <div id="site-header"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1 id="page-title">المقالات العلمية</h1>
+      <p id="page-subtitle" style="margin:0;opacity:.9">
+        استعراض وبحث في المقالات المفهرسة ضمن الفهرس العراقي العلمي
+      </p>
+    </div>
+  </section>
+
+  <!-- محتوى الصفحة -->
+  <main class="container" style="padding:32px 0">
+
+    <!-- شريط البحث -->
+    <section class="search-panel" style="margin-bottom:32px">
+      <div class="search-grid">
+
+        <!-- عنوان المقال -->
+        <div class="form-group">
+          <label for="search-title">عنوان المقال</label>
+          <input
+            type="text"
+            id="search-title"
+            placeholder="اكتب جزءًا من عنوان المقال…"
+          />
+        </div>
+
+        <!-- اسم المؤلف -->
+        <div class="form-group">
+          <label for="search-author">اسم المؤلف</label>
+          <input
+            type="text"
+            id="search-author"
+            placeholder="اسم المؤلف أو جزء منه…"
+          />
+        </div>
+
+        <!-- التخصص (Autocomplete) -->
+        <div class="form-group">
+          <label for="search-specialization">التخصص</label>
+          <input
+            type="text"
+            id="search-specialization"
+            placeholder="الكل / جميع الاختصاصات"
+            autocomplete="off"
+          />
+          <!-- نتائج الـ autocomplete -->
+          <div id="specialization-suggestions" class="autocomplete-box"></div>
+        </div>
+
+        <!-- زر البحث -->
+        <div class="form-group form-group-action">
+          <button id="search-btn" class="btn-primary">
+            بحث
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- نطاق العرض (يظهر فقط عند الدخول من مجلة) -->
+    <section id="journal-scope" class="journal-scope" style="display:none;margin-bottom:16px">
+      <strong>عرض مقالات مجلة:</strong>
+      <span id="journal-name">—</span>
+    </section>
+
+    <!-- نتائج المقالات -->
+    <section id="articles-results">
+      <!-- Article Cards تُرسم ديناميكيًا -->
+    </section>
+
+    <!-- التصفح -->
+    <div id="pager" class="iqx-pager" style="margin-top:32px"></div>
+
+  </main>
+
+  <!-- الفوتر -->
+  <div id="site-footer"></div>
+
+  <!-- تحميل الهيدر والفوتر -->
+  <script>
+    fetch('/iraq_index/partials/iraqindex_header.html?v=1')
+      .then(r => r.text())
+      .then(t => document.getElementById('site-header').innerHTML = t);
+
+    fetch('/iraq_index/partials/iraqindex_footer.html?v=1')
+      .then(r => r.text())
+      .then(t => document.getElementById('site-footer').innerHTML = t);
+  </script>
+
+  <!-- منطق الصفحة -->
+  <script src="/assets/research_agency/js/articles.js"></script>
+
+</body>
+</html>

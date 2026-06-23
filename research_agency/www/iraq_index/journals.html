@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ابحث عن مجلة – الفهرس العراقي العلمي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/research_agency/css/site.css" />
+  <link rel="icon" href="/assets/research_agency/images/iraqindex-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/research_agency/css/journals.css" />
+</head>
+<body>
+
+  <!-- الهيدر -->
+  <div id="site-header"></div>
+
+  <!-- Hero صغير -->
+  <section class="hero" style="padding:40px 0;text-align:center">
+    <div class="container">
+      <h1 style="margin:0 0 12px">ابحث عن مجلة</h1>
+      <p style="margin:0;opacity:.9">استعرض وفلتر المجلات المفهرسة</p>
+    </div>
+  </section>
+
+  <!-- شريط البحث -->
+  <section class="container" style="padding:16px 0">
+    <div class="iqx-searchbar">
+      <input id="q" type="text" placeholder="أكتب اسم المجلة أو الجهة الناشرة…" />
+      <select id="spec">
+        <option value="">كل التخصصات</option>
+        <!-- ممكن تعبئتها لاحقًا -->
+      </select>
+      <button id="btn-search">بحث</button>
+    </div>
+  </section>
+
+  <!-- النتائج -->
+  <section class="container">
+    <div id="results" class="iqx-results"></div>
+    <div class="iqx-pager">
+      <button id="prev">السابق</button>
+      <span id="page">1</span>
+      <button id="next">التالي</button>
+    </div>
+  </section>
+
+  <!-- الفوتر -->
+  <div id="site-footer"></div>
+
+  <!-- حقن الهيدر/الفوتر من نفس أسلوبك -->
+  <script>
+    fetch('/iraq_index/partials/iraqindex_header.html?v=1')
+      .then(r => r.text()).then(t => { document.getElementById('site-header').innerHTML = t; });
+
+    fetch('/iraq_index/partials/iraqindex_footer.html?v=1')
+      .then(r => r.text()).then(t => { document.getElementById('site-footer').innerHTML = t; });
+  </script>
+
+  <!-- السكربتات العامة -->
+  <script src="/assets/research_agency/js/site.js"></script>
+  <script src="/assets/research_agency/js/journal-search.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>تأكيد الدفع التجريبي – الفهرس العراقي العلمي</title>
+
+  <!-- خط وهوية -->
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/assets/research_agency/images/iraqindex-logo.svg" type="image/svg+xml">
+
+  <!-- ستايل عام + ستايل الصفحة -->
+  <link rel="stylesheet" href="/assets/research_agency/css/site.css" />
+  <link rel="stylesheet" href="/assets/research_agency/css/pay-online.css" />
+</head>
+<body>
+  <!-- هيدر -->
+  <div id="site-header"></div>
+
+  <!-- هيرو بسيط يشبه صفحة البحث -->
+  <section class="hero">
+    <div class="container">
+      <h1>تأكيد الدفع التجريبي</h1>
+      <p>هذه العملية تجريبية ولا تتضمن أي خصم حقيقي.</p>
+    </div>
+  </section>
+
+  <!-- بطاقة الدفع -->
+  <section class="container">
+    <div class="pay-card">
+      <div id="alert" class="alert" hidden></div>
+
+      <div class="pay-row">
+        <div class="pay-col">
+          <label>طريقة الدفع (تجريبية)</label>
+          <select id="pay-method">
+            <option value="بطاقة وهمية">بطاقة وهمية</option>
+            <option value="زين كاش وهمي">زين كاش وهمي</option>
+            <option value="تحويل بنكي وهمي">تحويل بنكي وهمي</option>
+            <option value="نقدي وهمي">نقدي وهمي</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="pay-actions" style="justify-content:center">
+        <button id="btn-confirm" class="btn-primary">تأكيد الدفع التجريبي الآن</button>
+        <a class="btn-secondary" href="/iraq_index/">العودة للواجهة الرئيسية</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- فوتر -->
+  <div id="site-footer"></div>
+
+  <!-- سكربتات -->
+  <script src="/assets/research_agency/js/site.js"></script>
+  <script src="/assets/research_agency/js/pay-online.js"></script>
+</body>
+</html>

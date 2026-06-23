@@ -1,0 +1,214 @@
+/* research_agency/public/scss/site.scss */
+/* ================= الهوية اللونية ================= */
+:root{
+  --navy:#0a324c;
+  --sky:#83d4ff;
+  --card:#f6fbff;
+  --radius:16px;
+}
+
+/* ================= الخط والقاعدة ================= */
+html[dir="rtl"] body{
+  font-family:"Almarai",system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Arabic",sans-serif;
+  color:#223;
+  background:#fff;
+}
+
+/* حاوية عامة */
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+
+/* ================= أزرار ================= */
+.btn-primary{
+  background:var(--navy);
+  color:#fff;
+  border:none;
+  border-radius:999px;
+  padding:.6rem 1rem;
+  cursor:pointer;
+  transition:filter .2s ease,background .2s ease
+}
+.btn-primary:hover{filter:brightness(1.06)}
+
+/* ================= الهيدر (ثابت) ================= */
+.header{
+  position:sticky; top:0; z-index:50;
+  background:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,.05)
+}
+.header .container{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:10px 0
+}
+
+/* الشعار: أيقونة + نص */
+.header .brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.brand-icon{height:28px;width:auto;display:block}
+.brand-text{font-weight:800;font-size:18px;color:var(--navy);white-space:nowrap}
+
+/* القائمة العلوية */
+.nav{display:flex;gap:18px;flex-wrap:wrap}
+.nav a{
+  color:var(--navy); text-decoration:none;
+  padding:8px 12px; border-radius:10px; transition:.2s
+}
+.nav a:hover{background:rgba(58, 180, 246, 0.18)}
+.nav .btn-primary{background:var(--navy);color:#fff !important}
+
+/* ================= بطل الصفحة (Hero) ================= */
+.hero{
+  padding:40px 0; text-align:center;
+  background:linear-gradient(135deg,var(--navy),var(--sky) 120%);
+  color:#fff;
+  border-bottom-left-radius:var(--radius);
+  border-bottom-right-radius:var(--radius)
+}
+
+/* ================= الإحصاءات ================= */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.stat-card{
+  background:#fff; border:1px solid #e9f4ff; border-radius:16px;
+  padding:18px 20px; text-align:center;
+  box-shadow:0 6px 18px rgba(10,50,76,.06)
+}
+.stat-title{color:#456;font-weight:700;margin-bottom:6px}
+.stat-num{font-size:2rem;font-weight:800;color:var(--navy);line-height:1}
+.stat-sub{margin-top:6px;color:#678;font-size:.9rem}
+
+/* ================= الفوتر ================= */
+.iraqindex-footer{background:var(--card);border-top:1px solid #e3f3ff;margin-top:40px}
+.iraqindex-footer .footer-container{max-width:1100px;margin:0 auto;padding:0 16px}
+.iraqindex-footer .footer-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px; padding:20px 0
+}
+.iraqindex-footer .footer-grid a{color:var(--navy);text-decoration:none}
+.iraqindex-footer .footer-grid a:hover{text-decoration:underline}
+.iraqindex-footer .footer-bottom{
+  border-top:1px solid #e3f3ff; padding:10px 0; color:#567; font-size:.9rem;
+  display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap; text-align:start
+}
+
+/* ================= موبايل ================= */
+@media (max-width:768px){
+  .header .container{flex-direction:column;align-items:flex-start;gap:8px}
+  .brand-text{font-size:16px}
+  .nav{gap:10px}
+  .iraqindex-footer .footer-bottom{flex-direction:column;text-align:center}
+}
+
+/* ================= روابط عامة (احتياط) ================= */
+.nav a, a{outline:none}
+
+/* تحسين نسخة الشعار + النص */
+.brand-icon{
+  height:56px;           /* جربي 52–60 حسب ذوقك */
+  width:auto;
+  display:block;
+  max-height:none;       /* ألغِ أي قيود سابقة */
+  object-fit:contain;
+} /* كان 28px */
+.brand-text{
+  font-weight:700;          /* أخف من 800 */
+  font-size:17px;
+  color:var(--navy);
+  opacity:.95;
+  letter-spacing:.1px;
+  text-align: right;
+}
+
+/* توازن المسافات بين الشعار والقائمة */
+.header .container{gap:14px}
+.nav{gap:16px}
+
+/* على الشاشات الصغيرة جداً: اختصر النص وأبقِ الأيقونة */
+@media (max-width:540px){
+  .brand-text{display:none}
+  .nav{gap:12px}
+}
+
+/* هوية الخط العامة */
+html, body {
+  font-family: "Almarai", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Arabic", Arial, sans-serif;
+  color: #223;
+  background: #fff;
+}
+
+/* تأكيد أن عناصر الإدخال ترث الخط */
+input, select, button, textarea {
+  font-family: inherit;
+}
+
+/* إصلاح زر "قدّم طلب فهرسة" في الهيدر عند الضغط / الفوكس */
+header.header .btn-primary:focus,
+header.header .btn-primary:active,
+header.header .btn-primary:focus-visible {
+  border-color: #0a324c !important;  /* نفس لون الزر والهوفر */
+  box-shadow: none !important;       /* إزالة الهالة الزرقاء المزعجة */
+}
+
+/* ===== Fix Header Nav wrapping (IraqIndex) ===== */
+.header .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+/* خلي روابط/أزرار الـ nav بسطر واحد */
+.header .nav{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:nowrap;         /* مهم: يمنع نزول زر لسطر جديد */
+  white-space:nowrap;       /* مهم: يمنع تكسير النص */
+}
+
+/* خلي كل الروابط inline-flex حتى ما يصير سلوك block */
+.header .nav a{
+  display:inline-flex;
+  align-items:center;
+}
+
+/* الأزرار داخل nav لا تاخذ margin غريب */
+.header .nav .btn-primary,
+.header .nav .btn-secondary{
+  margin:0;
+}
+
+/* على الشاشات الصغيرة فقط نسمح بالالتفاف */
+@media (max-width: 900px){
+  .header .nav{
+    flex-wrap:wrap;
+    white-space:normal;
+    justify-content:center;
+  }
+}
+
+header.header .nav a.btn-secondary-nav{
+  background: transparent;
+  color: var(--navy);
+  border: none;
+  border-radius: 999px;
+  padding: .6rem 1rem;
+  text-decoration: none;
+  outline: none;
+}
+header.header .nav a.btn-secondary-nav:hover{
+  background: rgba(58, 180, 246, 0.18);
+}
+
+/* زر متابعة الطلب مثل بقية روابط القائمة */
+header.header .nav a.btn-secondary-nav{
+  background: transparent !important;
+  color: var(--navy) !important;
+  border: none !important;
+  border-radius: 10px !important;   /* نفس .nav a */
+  padding: 8px 12px !important;     /* نفس .nav a */
+  box-shadow: none !important;
+}
+
+/* نفس تأثير الهوفر لباقي الروابط */
+header.header .nav a.btn-secondary-nav:hover{
+  background: rgba(58, 180, 246, 0.18) !important;
+}
+

@@ -1,0 +1,321 @@
+/* =====================================================
+   Articles Page – Scopus-like UI
+   ===================================================== */
+
+/* ---------- عام ---------- */
+
+body {
+  font-family: 'Almarai', sans-serif;
+}
+
+main.container {
+  padding-top: 24px;
+  padding-bottom: 32px;
+}
+
+.hero {
+  background: linear-gradient(135deg, #0a324c, #0f4c75);
+  color: #fff;
+}
+
+.hero h1 {
+  margin-bottom: 6px;
+}
+
+/* Sidebar (يمين) */
+.filters-sidebar {
+  width: 260px;
+  min-width: 260px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e3edf3;
+  border-radius: 12px;
+  position: sticky;
+  top: 20px;
+  flex-shrink: 0;
+}
+
+.articles-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+/* =====================================================
+   Search Panel
+   ===================================================== */
+
+.search-panel {
+  background: #ffffff;
+  border: 1px solid #d9e6ef;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.search-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  color: #0a324c;
+}
+
+.form-group input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #cfe0ea;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #83d4ff;
+}
+
+.form-group-action {
+  justify-content: flex-end;
+}
+
+.btn-primary {
+  background: #83d4ff;
+  border: none;
+  color: #0a324c;
+  padding: 11px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #6cc8f5;
+}
+
+/* =====================================================
+   Filters
+   ===================================================== */
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-group h4 {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: #0a324c;
+}
+
+.filter-item {
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.filter-item input {
+  margin-left: 6px;
+}
+
+/* =====================================================
+   Autocomplete
+   ===================================================== */
+
+.autocomplete-box {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #d5e6ef;
+  border-radius: 10px;
+  margin-top: 4px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  max-height: 220px;
+  overflow-y: auto;
+  display: none;
+  z-index: 50;
+}
+
+.autocomplete-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.autocomplete-item:hover {
+  background: #f1f7fb;
+}
+
+/* =====================================================
+   Journal Scope
+   ===================================================== */
+
+.journal-scope {
+  background: #f1f7fb;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: #0a324c;
+}
+
+/* =====================================================
+   Articles
+   ===================================================== */
+
+#articles-results {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Article Card */
+
+.article-card {
+  background: #ffffff;
+  border: 1px solid #e3edf3;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* عنوان */
+.article-title {
+  margin: 0 0 6px 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.article-title a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.article-title a:hover {
+  text-decoration: underline;
+}
+
+/* Authors */
+.article-authors {
+  font-size: 0.85rem;
+  color: #5f6f7f;
+  margin-bottom: 6px;
+}
+
+/* Meta */
+.article-meta {
+  font-size: 0.8rem;
+  color: #4a4a4a;
+  margin-bottom: 10px;
+}
+
+/* Abstract */
+.article-abstract {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #2c3e50;
+  margin-bottom: 12px;
+}
+
+/* Actions */
+.article-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.article-actions .doi {
+  color: #7a7a7a;
+}
+
+.article-actions .source-link {
+  color: #0a324c;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.article-actions .source-link:hover {
+  text-decoration: underline;
+}
+
+/* =====================================================
+   Pagination
+   ===================================================== */
+
+.iqx-pager {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.iqx-pager button {
+  background: transparent;
+  border: 1px solid #cfe0ea;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.iqx-pager button:hover:not(:disabled) {
+  background: #f1f7fb;
+}
+
+.iqx-pager button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* =====================================================
+   Responsive
+   ===================================================== */
+
+@media (max-width: 900px) {
+  .articles-layout {
+    flex-direction: column;
+  }
+
+
+  .search-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .search-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.articles-layout {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 32px;
+  align-items: flex-start;
+  padding-top: 20px;
+  width: 100%;
+}
+
+/* override container فقط لهذه الصفحة */
+.articles-layout {
+  width: 100%;
+}
+
+main.container {
+  max-width: 1600px;   /* مهم */
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

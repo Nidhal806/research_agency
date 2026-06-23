@@ -1,0 +1,242 @@
+/* ==========================================
+   Journals Page – Final (Articles-Matched)
+   مطابق 100% لروح صفحة المقالات
+   ========================================== */
+
+/* ================= Hero ================= */
+
+.hero {
+  background: linear-gradient(135deg, var(--navy), var(--sky) 120%);
+  color: #fff;
+}
+
+/* ================= Search Panel ================= */
+
+.search-panel {
+  background: #ffffff;
+  border: 1px solid #e3edf3;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.search-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: .85rem;
+  margin-bottom: 6px;
+  color: var(--navy);
+}
+
+.form-group input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #cfe0ea;
+  font-size: .9rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #83d4ff;
+}
+
+/* زر البحث مطابق للمقالات */
+
+/* ===== زر البحث مطابق تماماً لصفحة المقالات ===== */
+
+
+.form-group-action {
+  display: flex;
+  margin-top: 22px; /* نفس ارتفاع label + margin-bottom تقريباً */
+}
+
+
+.search-panel .btn-primary {
+  background: #83d4ff;
+  color: #0a324c;
+  border: none;
+  padding: 11px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  height: 42px; /* نفس ارتفاع input */
+}
+
+.search-panel .btn-primary:hover {
+  background: #6cc8f5;
+}
+
+
+/* ================= Journal Cards ================= */
+
+#journals-results {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.journal-card {
+  background: #ffffff;
+  border: 1px solid #e3edf3;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  text-align: right;
+}
+
+/* ================= Title ================= */
+
+/* ===== Journal Title – مطابق لعنوان المقالات ===== */
+
+.journal-title {
+  margin: 0 0 6px 0;      /* نفس المقالات */
+  font-size: 1.05rem;     /* نفس المقالات */
+  font-weight: 700;
+}
+
+.journal-title a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.journal-title a:visited {
+  color: #1a73e8;         /* يمنع البنفسجي بعد الضغط */
+}
+
+.journal-title a:hover {
+  text-decoration: underline;
+}
+
+
+/* ================= Meta ================= */
+
+.journal-meta {
+  font-size: .85rem;
+  color: #5f6f7f;
+  margin-bottom: 6px;
+}
+
+.journal-issn {
+  font-size: .82rem;
+  color: #4a4a4a;
+  margin-bottom: 10px;
+}
+
+/* ================= Bottom Section ================= */
+
+.journal-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  font-size: .85rem;
+}
+
+.journal-count {
+  font-weight: 600;
+  color: #0a324c;
+}
+
+/* زر عرض المقالات مطابق لأسلوب المقالات */
+
+/* ===== عرض المقالات – مطابق لـ View Source ===== */
+
+.journal-actions a {
+  color: #0a324c;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.8rem;   /* نفس المقالات */
+}
+
+.journal-actions a:hover {
+  text-decoration: underline;
+}
+
+
+/* ================= Pagination ================= */
+
+.iqx-pager {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.iqx-pager button {
+  background: transparent;
+  border: 1px solid #cfe0ea;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.iqx-pager button:hover:not(:disabled) {
+  background: #f1f7fb;
+}
+
+.iqx-pager button:disabled {
+  opacity: .4;
+  cursor: default;
+}
+
+/* ================= Responsive ================= */
+
+@media (max-width: 900px) {
+  .search-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .search-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== زر البحث مطابق للمقالات ===== */
+
+.btn-primary {
+  background: #83d4ff;
+  border: none;
+  color: #0a324c;
+  padding: 11px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #6cc8f5;
+}
+
+.btn-primary:disabled {
+  background: #83d4ff !important;
+  color: #0a324c;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ===== توحيد ارتفاع زر البحث مع الحقول ===== */
+
+.search-panel .btn-primary {
+  height: 42px;      /* نفس ارتفاع input */
+  padding: 0 18px;   /* إزالة padding العمودي لأن height محدد */
+  border-radius: 10px;
+}
+
+.btn-primary:disabled {
+  background: #83d4ff;   /* نفس اللون السماوي */
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>دليل المجلات – الفهرس العراقي العلمي</title>
+
+  <!-- الخط -->
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- ستايل عام -->
+  <link rel="stylesheet" href="/assets/research_agency/css/site.css" />
+  <!-- <link rel="stylesheet" href="/assets/research_agency/css/articles.css" /> -->
+  <link rel="stylesheet" href="/assets/research_agency/css/journals-v2.css" />
+
+  <link rel="icon" href="/assets/research_agency/images/iraqindex-logo.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="site-header"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>دليل المجلات المفهرسة</h1>
+      <p style="margin:0;opacity:.9">
+        استعرض المجلات وابحث ضمن التخصصات المختلفة
+      </p>
+    </div>
+  </section>
+
+  <main class="container" style="padding:32px 0">
+
+    <!-- Search Panel -->
+    <section class="search-panel">
+      <div class="search-grid">
+
+        <!-- اسم المجلة -->
+        <div class="form-group">
+          <label>اسم المجلة</label>
+          <input type="text" id="search-name" placeholder="اكتب اسم المجلة…" />
+        </div>
+
+        <!-- الجهة الناشرة -->
+        <div class="form-group">
+          <label>الجهة الناشرة</label>
+          <input type="text" id="search-institution" placeholder="اسم الجامعة…" autocomplete="off"/>
+          <div id="institution-suggestions" class="autocomplete-box"></div>
+        </div>
+
+        <!-- التخصص -->
+        <div class="form-group">
+          <label>التخصص</label>
+          <input type="text"
+                 id="search-specialization"
+                 placeholder="الكل / جميع الاختصاصات"
+                 autocomplete="off" />
+          <div id="specialization-suggestions" class="autocomplete-box"></div>
+        </div>
+
+        <!-- زر البحث -->
+        <div class="form-group form-group-action">
+          <button id="search-btn" class="btn-primary">بحث</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- نتائج -->
+    <section id="journals-results" style="margin-top:32px"></section>
+
+    <!-- Pager -->
+    <div id="pager" class="iqx-pager" style="margin-top:32px"></div>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+
+  <!-- تحميل الهيدر والفوتر -->
+  <script>
+    fetch('/iraq_index/partials/iraqindex_header.html?v=1')
+      .then(r => r.text())
+      .then(t => document.getElementById('site-header').innerHTML = t);
+
+    fetch('/iraq_index/partials/iraqindex_footer.html?v=1')
+      .then(r => r.text())
+      .then(t => document.getElementById('site-footer').innerHTML = t);
+  </script>
+
+  <!-- السكربت -->
+  <script src="/assets/research_agency/js/journals-v2.js"></script>
+
+</body>
+</html>

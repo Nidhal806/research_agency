@@ -1,0 +1,184 @@
+body {
+  font-family: "Almarai", sans-serif;
+}
+
+.iqx-track-hero {
+  padding: 48px 0;
+  text-align: center;
+}
+
+.iqx-track-search {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.iqx-track-search input {
+  width: 280px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid #ccc;
+}
+
+.iqx-track-search button {
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: #0a324c;
+  color: #fff;
+  border: none;
+  font-weight: 700;
+}
+
+.iqx-track-container {
+  padding: 24px 0 48px;
+}
+
+.iqx-track-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.08);
+}
+
+.iqx-track-head {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.label {
+  font-size: 13px;
+  color: #777;
+}
+
+.value {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0a324c;
+}
+
+.badges {
+  display: flex;
+  gap: 8px;
+}
+
+.badge {
+  background: #0a324c;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.badge.light {
+  background: #eef6ff;
+  color: #0a324c;
+}
+
+.iqx-track-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 12px;
+}
+
+.iqx-divider {
+  margin: 18px 0;
+  height: 1px;
+  background: #e6e6e6;
+}
+
+/* Timeline */
+.iqx-timeline {
+  display: grid;
+  gap: 12px;
+}
+
+.step {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.step .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+}
+
+.step.active .dot {
+  border-color: #83d4ff;
+}
+
+.step.done .dot {
+  border-color: #28a745;
+}
+
+.step .text {
+  font-weight: 700;
+}
+
+/* Actions */
+.iqx-track-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.iqx-track-actions button,
+.iqx-track-actions a {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.iqx-indexed-box {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f0fff6, #ffffff);
+  border: 1px solid #cdebd8;
+}
+
+.iqx-indexed-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.badge.indexed {
+  background: #1f9254;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.iqx-indexed-box .date {
+  font-size: 13px;
+  color: #1f9254;
+  font-weight: 700;
+}
+
+.iqx-indexed-box p {
+  margin: 0;
+  color: #245c3a;
+  line-height: 1.8;
+}
+
+/* Fix: btnPay text invisible بسبب ستايل iqx-track-actions */
+.iqx-track-actions #btnPay.btn-primary{
+  background: #0a324c !important;
+  color: #fff !important;
+  border-color: #0a324c !important;
+}
+

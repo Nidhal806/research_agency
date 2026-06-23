@@ -1,0 +1,147 @@
+/* =====================================================
+   Journal Details – Articles Table (Scopus-like)
+   ===================================================== */
+
+/* الإطار العام للجدول */
+.iqx-table {
+  border-collapse: separate;
+  border-spacing: 0 12px;            /* فصل بصري بين الصفوف */
+  width: 100%;
+}
+
+/* رؤوس الأعمدة */
+.iqx-table thead th {
+  background: transparent;
+  color: #0a324c;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 10px 18px;
+  text-align: right;
+  border: none;
+  opacity: 0.9;
+}
+
+/* صف المقال (كبطاقة خفيفة) */
+.iqx-table tbody tr {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* الخلايا */
+.iqx-table td {
+  padding: 16px 18px;
+  vertical-align: top;
+  line-height: 1.75;
+  font-size: 0.95rem;
+  color: #2c3e50;
+}
+
+/* =========================
+   الأعمدة – Hierarchy
+========================= */
+
+/* عنوان المقال (الأهم بصريًا) */
+.iqx-table td.c-title {
+  min-width: 300px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #0a324c;
+}
+
+/* رابط عنوان المقال */
+/* =========================
+   Article title as LINK
+========================= */
+
+.iqx-table td.c-title a {
+  color: #1a73e8;               /* أزرق أكاديمي */
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.iqx-table td.c-title a:hover {
+  text-decoration: underline;
+  color: #0b5ed7;
+}
+
+
+/* المؤلفون */
+.iqx-table td:nth-child(2) {
+  min-width: 240px;
+  font-size: 0.9rem;
+  color: #5f6f7f;
+}
+
+/* تاريخ النشر */
+.iqx-table td:nth-child(3) {
+  white-space: nowrap;
+  min-width: 120px;
+  font-size: 0.85rem;
+  color: #4a4a4a;
+}
+
+/* المجلد + العدد */
+.iqx-table td:nth-child(4),
+.iqx-table td:nth-child(5) {
+  text-align: center;
+  min-width: 90px;
+  font-weight: 600;
+  color: #1f2d3d;
+}
+
+/* DOI */
+.iqx-table td:nth-child(6) {
+  min-width: 200px;
+  font-size: 0.8rem;
+  color: #7a7a7a;
+  word-break: break-word;
+}
+
+/* =========================
+   تحسين القراءة العامة
+========================= */
+
+/* منع تلاصق الصفوف في الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .iqx-table td {
+    padding: 14px 14px;
+  }
+
+  .iqx-table td.c-title {
+    min-width: auto;
+  }
+}
+
+/* =========================
+   Tight Layout – استغلال المساحة
+========================= */
+
+/* تقليل padding العام للصفحة */
+main.container {
+  padding-top: 16px !important;
+  padding-bottom: 24px !important;
+}
+
+/* تقليل المسافات بين الأقسام */
+section {
+  margin-bottom: 24px !important;
+}
+
+/* تقليل المسافة فوق جدول المقالات */
+.iqx-table-wrap {
+  margin-top: 8px !important;
+}
+
+/* تقليل padding أفقي داخل الجدول */
+.iqx-table td,
+.iqx-table th {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.iqx-table td,
+.iqx-table th {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
